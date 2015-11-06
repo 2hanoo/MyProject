@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reply.dao.ReplyMapper">
+    
+<!--     댓글 기본 조회 -->
+<!--     <select id = "replyList" parameterType="reply" resultType="reply"> -->
+<!--         Select r_num, num, r_name, r_content, r_pwd, to_char(r_date,'YYYY-MM-DD HH24:MI:SS') as r_date  -->
+<!--         From reply -->
+<!--         Where num = #{num} -->
+<!--         Order by r_num DESC -->
+<!--     </select> -->
+    
+<!--     댓글 등록 -->
+<!--     <insert id="replyInsert" parameterType="reply" > -->
+<!--         /* reply - replyInsert */ -->
+<!--         <selectKey keyProperty="r_num" resultType="int" order="BEFORE"> -->
+<!--             select reply_seq.nextval from dual  -->
+<!--         </selectKey> -->
+<!--         	Insert into reply(r_num, num, r_name, r_content, r_pwd)  -->
+<!--         	values(#{r_num}, #{num}, #{r_name}, #{r_content}, #{r_pwd}) -->
+<!--     </insert> -->
+    
+<!--     조회수 증가 -->
+<!--     <update id="readcntUpdate" parameterType ="int"> -->
+<!-- 			UPDATE reply SET readcnt = readcnt +1 WHERE num = #{num} -->
+<!-- 	</update> -->
+    
+<!--     게시물 조회 -->
+<!--     <select id="detail" parameterType="int" resultType="reply" > -->
+<!-- 		/*reply - detail*/ -->
+<!-- 		SELECT num, author, title, content, TO_CHAR(writeday, 'YYYY-MM-DD HH24:MI:SS') -->
+<!-- 		writeday, readcnt, repRoot, repIndent, repStep FROM reply Where num = #{num}          -->
+<!--     </select> -->
+    
+<!--     게시물 수정 -->
+<!-- 	<update id="update" parameterType="reply" > -->
+<!-- 	    /* reply - update */ -->
+<!-- 	    update reply set title = #{title}, content = #{content}, passwd = #{passwd} where num = #{num} -->
+<!-- 	</update> -->
+
+<!-- 	게시물 삭제 --> 
+<!-- 	<delete id="delete" parameterType="reply" > -->
+<!-- 	    /* reply - delete */ -->
+<!-- 	    delete from reply where num = #{num} -->
+<!-- 	</delete> -->
+
+<!-- 	 비밀번호 체크 -->	   
+<!-- 	<select id="pwdCheck" parameterType="reply" resultType="int"> -->
+<!-- 	    select NVL((SELECT 1 from reply where num = #{num} AND passwd = #{passwd}),0)  -->
+<!-- 	    as result From dual -->
+<!-- 	</select> -->
+	
+	
+</mapper>

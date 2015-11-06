@@ -1,0 +1,141 @@
+
+* {
+	background-color : #FFFFFF;
+	margin: auto;
+    width: 90%;
+    padding: 10px;
+	font-family:'Nanum Gothic coding';
+	
+}
+
+body{
+	align-content:center;
+	color : #FF4545;
+	background-color:#FF4545;
+	font-family:'Nanum Gothic coding';
+}
+
+h1{
+	text-align : center;
+	font-size:60px;
+	color : #FF4545;
+}
+
+#user_id {
+	border:dotted;
+	color : #FF4545;
+}
+
+#input, #result {
+	border: 10px solid #FF4545;
+	text-align: center;
+	width: 60%;
+	font-weight: bold;
+}
+
+#input {
+	padding: 5px;
+	
+}
+
+#input:after {
+	content: '';
+	display: block;
+	float: none;
+	clear: both;
+}
+
+#input > input, #input > select, #input > div, #input > button, #input > div > button {
+	width: 99%;
+	text-align: center;
+	display: block;
+	font-size: 17px;
+	color: #222;
+	border: 3px solid #FF0000;
+	margin: 5px auto;
+	padding: 5px 0;
+}
+#input > input#email , #input > select#emailAddress{
+	display: inline;
+	width: 49%;
+}
+#input > h3 {
+	text-align: left;
+	margin: 0;
+	padding: 10px 0 0 0;
+}
+
+#input > h3:before {
+	content: '';
+	display: block;
+	float: none;
+	clear: both;
+}
+
+#input > label {
+	margin: 0;
+	padding: 0;
+	display: block;
+	float: left;
+	padding-bottom: 10px;
+}
+
+#input > label > input {
+	width: auto !important;
+	display: inline;
+}
+
+h2 {
+	padding-top: 10px;
+}
+
+#result {
+	padding: 50px;
+	font-size: 17px;
+	color: #500;
+	background: #FF0000;
+	padding: 50px;
+}
+
+#input .myButton {
+	-moz-box-shadow: inset 0px 1px 0px 0px #FF9797;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #FF9797;
+	box-shadow: inset 0px 1px 0px 0px #FF9797;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #FF4545), color-stop(1, #FF3030));
+	background: -moz-linear-gradient(top, #FF4545 5%, #FF3030 100%);
+	background: -webkit-linear-gradient(top, #FF4545 5%, #FF3030 100%);
+	background: -o-linear-gradient(top, #FF4545 5%, #FF3030 100%);
+	background: -ms-linear-gradient(top, #FF4545 5%, #FF3030 100%);
+	background: linear-gradient(to bottom, #FF4545 5%, #FF3030 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF4545', endColorstr='#FF3030',GradientType=0);
+	background-color: #FF4545;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #CC2626;
+	display: inline-block;
+	color: #ffffff;
+	font-family: 'Nanum Gothic coding';
+	font-size: 15px;
+	font-weight: normal;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #8F1B1B;
+}
+
+#input .myButton:hover {
+
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #FF3030), color-stop(1, #FF4545));
+	background: -moz-linear-gradient(top, #FF3030 5%, #FF4545 100%);
+	background: -webkit-linear-gradient(top, #FF3030 5%, #FF4545 100%);
+	background: -o-linear-gradient(top, #FF3030 5%, #FF4545 100%);
+	background: -ms-linear-gradient(top, #FF3030 5%, #FF4545 100%);
+	background: linear-gradient(to bottom, #FF3030 5%, #FF4545 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF3030', endColorstr='#FF4545',GradientType=0);
+	background-color: #FF3030;
+}
+
+#input .myButton:active {
+	position: relative;
+	top: 1px;
+}
