@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+     <typeAliases>
+        <typeAlias type = "com.board.entity.BoardDTO" alias="board" />
+<!--         <typeAlias type = "com.reply.entity.ReplyDTO" alias="reply" /> -->
+    </typeAliases> 
+    
+    <environments default="development">
+        <environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="JNDI"> <!-- java Naming and Directory Interface -->
+				<property name="data_source" value="java:comp/env/jdbc/Oracle11g" />			    
+			</dataSource>            
+        </environment>
+    </environments>
+    
+	<mappers> 
+		<mapper resource="com/query/Board.xml"/>
+<!-- 		<mapper resource="com/query/Reply.xml"/> -->
+	</mappers>
+</configuration>

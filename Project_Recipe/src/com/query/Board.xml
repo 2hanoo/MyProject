@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baord.dao.BoardMapper">
+    
+    <!-- 게시물 기본 조회 -->
+    <select id = "recipeList" parameterType="board" resultType="board">
+        /* Board - list */
+        Select b_num, j.id, b_title, readcnt, cg_num, b_content, writeday, b_like, thumbnail
+        From r_board b,r_join j
+        where b.num=j.num
+        order by b_num desc
+    </select>
+    
+    <!-- 게시물 상세 조회 -->
+    <select id="recipeDetail" parameterType="int" resultType="board" >
+		/*Board - detail*/
+		SELECT b_num, nickname, b_title, readcnt, cg_num, b_content, TO_CHAR(writeday, 'YYYY-MM-DD HH24:MI:SS') writeday, b_like, thumbnail
+		FROM r_board Where num = #{num}        
+    </select>
+    <!-- 상세조회 내부 콘텐츠 영역 -->
+    <select id="recipeContent" parameterType="board" resultType="board" >
+		SELECT b_num, c_num, content, image 
+		FROM r_content Where num = #{num}    
+		Order by c_num ASC   
+    </select>
+    
+    <!-- 조회수 증가 -->
+    <update id="readcntUpdate" parameterType ="int">
+			UPDATE r_board SET readcnt = readcnt +1 WHERE b_num = #{b_num}
+	</update>
+        
+    <!-- 추천수 증가 -->
+    <update id="b_likeUpdate" parameterType ="int">
+			UPDATE r_board SET b_like = b_like +1 WHERE b_num = #{b_num}
+	</update>
+	
+	
+    <!-- 게시물 등록 -->
+    <insert id="recipeInsert" parameterType="board" >
+        /* Board - write */
+        <selectKey keyProperty="num" resultType="int" order="BEFORE">
+            select board_seq.nextval from dual 
+        </selectKey>
+		INSERT INTO R_BOARD (B_NUM, NICKNAME, B_PWD, B_TITLE, READCNT,  B_LIKE, THUMBNAIL, B_CONTENT, cg_num) 
+		VALUES (#{r_num}, #{nickname}, #{b_pwd}, #{b_title}, '0',  '0', '0', #{b_content}, '0')
+    </insert>
+    
+     <!-- 회원정보 등록 -->
+     <insert id="joinInsert" parameterType="board">
+     	INSERT INTO R_join (num, id, passwd, name, nickname, email, phone)
+     	VALUES(r_join_seq.nextval, #{id}, #{passwd}, #{name}, #{nickname}, #{email}, #{phone})
+     </insert>
+
+    <!-- 게시물 수정 -->
+	<update id="recipeUpdate" parameterType="board" >`
+	    /* Board - update */
+	    update r_board set b_title = #{b_title}, b_content = #{b_content},b_pwd = #{b_pwd} where b_num = #{b_num}, num = #{num}
+	</update>
+
+	<!-- 게시물 삭제 -->
+	<delete id="recipeDelete" parameterType="board" >
+	    /* Board - delete */
+	    delete from r_board where b_num = #{b_num}
+	</delete>
+
+	<!-- 비밀번호 체크 -->	    
+	<select id="pwdCheck" parameterType="board" resultType="int">
+	    select NVL((SELECT 1 from r_board where b_num = #{b_num} AND b_pwd = #{b_pwd}),0) 
+	    as result From dual
+	</select>
+</mapper>
