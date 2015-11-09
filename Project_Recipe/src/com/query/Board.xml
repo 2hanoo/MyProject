@@ -11,6 +11,16 @@
         where b.num=j.num
         order by b_num desc
     </select>
+	
+    <!-- 게시물 등록 -->
+    <insert id="recipeInsert" parameterType="board" >
+        /* Board - write */
+        <selectKey keyProperty="b_num" resultType="int" order="BEFORE">
+            select board_seq.nextval from dual 
+        </selectKey>
+		INSERT INTO R_BOARD (B_NUM, num, B_PWD, B_TITLE, READCNT, B_LIKE, THUMBNAIL, B_CONTENT, writeday, cg_num) 
+		VALUES (#{b_num},#{num}, #{b_pwd}, #{b_title}, '0', '0', '0', #{b_content}, to_char(sysdate, 'YYYY-MM-DD'), '0')
+    </insert>
     
     <!-- 게시물 상세 조회 -->
     <select id="recipeDetail" parameterType="int" resultType="board" >
@@ -35,16 +45,6 @@
 			UPDATE r_board SET b_like = b_like +1 WHERE b_num = #{b_num}
 	</update>
 	
-	
-    <!-- 게시물 등록 -->
-    <insert id="recipeInsert" parameterType="board" >
-        /* Board - write */
-        <selectKey keyProperty="num" resultType="int" order="BEFORE">
-            select board_seq.nextval from dual 
-        </selectKey>
-		INSERT INTO R_BOARD (B_NUM, NICKNAME, B_PWD, B_TITLE, READCNT,  B_LIKE, THUMBNAIL, B_CONTENT, cg_num) 
-		VALUES (#{r_num}, #{nickname}, #{b_pwd}, #{b_title}, '0',  '0', '0', #{b_content}, '0')
-    </insert>
     
      <!-- 회원정보 등록 -->
      <insert id="joinInsert" parameterType="board">

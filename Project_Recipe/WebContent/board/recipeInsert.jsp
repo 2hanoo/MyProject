@@ -19,8 +19,6 @@
 						return;
 					else if (!chkSubmit($('#b_content'), "작성할 내용을"))
 						return;
-					else if (!chkSubmit($('#cg_num'), "게시판 분류를"))
-						return;
 					else if (!chkSubmit($('#b_pwd'), "비밀번호를"))
 						return;
 					else {
@@ -63,20 +61,19 @@
 			<td>글제목</td>
 			<td colspan="2"><input type="text" name="b_title" id="b_title"></td>
 			<td><select name="cg_num" id="cg_num">
-					<option value="1">훔쳐온 레시피</option>
-					<option value="2">나의 레시피</option>
+					<option value="0">훔쳐온 레시피</option>
+					<option value="1">나의 레시피</option>
 			</select>
 		</tr>
 		<tr>
 			<td>작성자</td>
-			<td><input type="text" name="nickname" id="nickname"></td>
+			<td><input type="text" name="num" id="num"></td>
 			<td>비밀번호</td>
 			<td><input type="password" name="b_pwd" id="b_pwd"></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td colspan="3"><textarea name="b_content" id="b_content"
-					rows="10" cols="70"></textarea></td>
+			<td colspan="3"><textarea name="b_content" id="b_content" rows="10" cols="70"></textarea></td>
 		</tr>
 
 	</table>

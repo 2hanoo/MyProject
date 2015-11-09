@@ -35,30 +35,30 @@ public class BoardMapper {
 	public void readcntUpdate(int num) {
 		sqlSession.update("readcntUpdate",num);
 	}
-//	//추천수 증가
-//	public void b_likeUpdate(int num) {
-//		sqlSession.update("b_likeUpdate",num);
-//	}
+	//추천수 증가
+	public void b_likeUpdate(int num) {
+		sqlSession.update("b_likeUpdate",num);
+	}
 	//게시글 작성
 	public void recipeInsert(BoardDTO dto) {
 		sqlSession.insert("recipeInsert",dto);
 	}
-//	//회원가입
-//	public void joinInsert(BoardDTO dto) {
-//		sqlSession.insert("joinInsert",dto);
-//	}
-//	//암호 체크
-//	public int pwdCheck(BoardDTO dto){
-//		return (int)sqlSession.selectOne("pwdCheck",dto);
-//	}
-//	//게시글 수정
-//	public void recipeUpdate(BoardDTO dto) {
-//		sqlSession.update("recipeUpdate",dto);
-//	}
-//	//게시글 삭제
-//	public void delete(int num) {
-//		sqlSession.delete("delete",num);
-//	}
+	//회원가입
+	public void joinInsert(BoardDTO dto) {
+		sqlSession.insert("joinInsert",dto);
+	}
+	//암호 체크
+	public int pwdCheck(BoardDTO dto){
+		return (int)sqlSession.selectOne("pwdCheck",dto);
+	}
+	//게시글 수정
+	public void recipeUpdate(BoardDTO dto) {
+		sqlSession.update("recipeUpdate",dto);
+	}
+	//게시글 삭제
+	public void delete(int num) {
+		sqlSession.delete("delete",num);
+	}
 	public void close(){
 		sqlSession.close();
 	}

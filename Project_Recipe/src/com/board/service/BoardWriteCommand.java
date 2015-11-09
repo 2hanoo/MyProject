@@ -12,7 +12,7 @@ public class BoardWriteCommand implements BoardCommand{
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		BoardDTO dto = new BoardDTO();
 		dto.setB_title(request.getParameter("b_title"));
-		dto.setNickname(request.getParameter("id"));
+		dto.setNum(Integer.parseInt(request.getParameter("num")));
 		dto.setB_pwd(request.getParameter("b_pwd"));
 //		dto.setCg_num(Integer.parseInt(request.getParameter("cg_num")));
 		dto.setB_content(request.getParameter("b_content"));

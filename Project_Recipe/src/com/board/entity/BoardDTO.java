@@ -67,10 +67,10 @@ public class BoardDTO extends PagingDTO{
 		this.phone = phone;
 	}
 	public int getNum() {
-		return b_num;
+		return num;
 	}
 	public void setNum(int num) {
-		this.b_num = num;
+		this.num = num;
 	}
 	public String getB_pwd() {
 		return b_pwd;
