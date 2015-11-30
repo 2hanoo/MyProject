@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.log4j.Logger;
 
 import com.board.entity.BoardDTO;
 import com.mybatis.SqlMapConfig;
-import com.sun.istack.internal.logging.Logger;
 
 public class BoardMapper {
 	Logger logger = Logger.getLogger(BoardMapper.class);
